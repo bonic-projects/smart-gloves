@@ -5,7 +5,6 @@
 #include <addons/RTDBHelper.h>
 #include <Adafruit_MPU6050.h>
 #include <Wire.h>
-#include "BluetoothSerial.h"
 
 // Firebase Configuration
 #define WIFI_SSID "Autobonics_4G"
@@ -20,19 +19,8 @@ FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig config;
 FirebaseData stream;
-BluetoothSerial SerialBT;
-Adafruit_MPU6050 mpu;
 
-// Function Prototypes
-void constructWord(String cp);
-void sendBT();
-void setup();
-void loop();
-void readmpu();
-void readflex();
-void update();
-
-
+// MPU6050 object
 int flexPins[] = {33, 32, 35, 34,39}; // Flex sensor pins
 int flexADC[5] = {0};                  // Current readings
 int sensorMin[5] = {4095, 4095, 4095, 4095, 4095}; // Minimum readings
@@ -42,9 +30,7 @@ float flexAngles[5];
 float accelX, accelY, accelZ;     // Variables to store accelerometer data
 float gyroX, gyroY, gyroZ;        // Variables to store gyroscope data
 
-#define I2S_DOUT      25
-#define I2S_BCLK      27
-#define I2S_LRC       26
+Adafruit_MPU6050 mpu;
 
 String uid;
 String path;
@@ -147,7 +133,7 @@ void readflex() {
   for (int i = 0; i < 5; i++) {
     flexADC[i] = analogRead(flexPins[i]);
     flexADC[i] = constrain(flexADC[i], sensorMin[i], sensorMax[i]);
-    flexAngles[i] = ::map(flexADC[i], sensorMin[i], sensorMax[i], 0, 90);
+    flexAngles[i] = map(flexADC[i], sensorMin[i], sensorMax[i], 0, 90);
 
     // Uncomment for debugging
     /*
