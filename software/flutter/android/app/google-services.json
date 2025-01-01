@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "505041058847",
+    "firebase_url": "https://smart-glove-f2b81-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "smart-glove-f2b81",
+    "storage_bucket": "smart-glove-f2b81.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505041058847:android:a814a9c8d7be3cde28292a",
+        "android_client_info": {
+          "package_name": "com.example.smart_glove"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ0DkIjwz2UsIDxpOYYLd0j9ShQ7MWUnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
