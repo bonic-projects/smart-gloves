@@ -7,7 +7,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i5;
 import 'package:flutter/material.dart';
-import 'package:smart_glove/ui/views/feedback/feedback_view.dart' as _i4;
 import 'package:smart_glove/ui/views/home/home_view.dart' as _i2;
 import 'package:smart_glove/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
@@ -18,12 +17,11 @@ class Routes {
 
   static const startupView = '/startup-view';
 
-  static const feedbackView = '/feedback-view';
+
 
   static const all = <String>{
     homeView,
     startupView,
-    feedbackView,
   };
 }
 
@@ -37,10 +35,6 @@ class StackedRouter extends _i1.RouterBase {
       Routes.startupView,
       page: _i3.StartupView,
     ),
-    _i1.RouteDef(
-      Routes.feedbackView,
-      page: _i4.FeedbackView,
-    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
@@ -53,14 +47,6 @@ class StackedRouter extends _i1.RouterBase {
     _i3.StartupView: (data) {
       return _i5.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
-        settings: data,
-      );
-    },
-    _i4.FeedbackView: (data) {
-      final args = data.getArgs<FeedbackViewArguments>(nullOk: false);
-      return _i5.MaterialPageRoute<dynamic>(
-        builder: (context) =>
-            _i4.FeedbackView(connectedDeviceName: args.connectedDeviceName),
         settings: data,
       );
     },
@@ -124,22 +110,7 @@ extension NavigatorStateExtension on _i6.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToFeedbackView({
-    required String connectedDeviceName,
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  }) async {
-    return navigateTo<dynamic>(Routes.feedbackView,
-        arguments:
-            FeedbackViewArguments(connectedDeviceName: connectedDeviceName),
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
+
 
   Future<dynamic> replaceWithHomeView([
     int? routerId,
@@ -163,23 +134,6 @@ extension NavigatorStateExtension on _i6.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.startupView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> replaceWithFeedbackView({
-    required String connectedDeviceName,
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  }) async {
-    return replaceWith<dynamic>(Routes.feedbackView,
-        arguments:
-            FeedbackViewArguments(connectedDeviceName: connectedDeviceName),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

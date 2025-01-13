@@ -6,13 +6,13 @@ import 'package:smart_glove/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:smart_glove/services/firebase_service.dart';
-import 'package:smart_glove/ui/views/feedback/feedback_view.dart';
+
 // @stacked-import
 
 @StackedApp(routes: [
   MaterialRoute(page: HomeView),
   MaterialRoute(page: StartupView),
-  MaterialRoute(page: FeedbackView),
+
 // @stacked-route
 ], dependencies: [
   LazySingleton(classType: BottomSheetService),
