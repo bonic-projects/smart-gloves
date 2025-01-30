@@ -27,6 +27,8 @@ int sensorMin[5] = {4095, 4095, 4095, 4095, 4095}; // Minimum readings
 int sensorMax[5] = {0, 0, 0, 0, 0};               // Maximum readings
 float flexAngles[5];
 
+
+
 float accelX, accelY, accelZ;     // Variables to store accelerometer data
 float gyroX, gyroY, gyroZ;        // Variables to store gyroscope data
 
@@ -163,6 +165,19 @@ void update() {
     json.set("gyro_y", gyroY);
     json.set("gyro_z", gyroZ);
     json.set(F("ts/.sv"), F("timestamp"));
+
+     Serial.println("Uploading data:");
+    Serial.printf("  Little: %d\n", flexAngles[0]);
+    Serial.printf("  Ring: %d\n", flexAngles[1]);
+    Serial.printf("  Middle: %d\n", flexAngles[2]);
+    Serial.printf("  Pointer: %d\n", flexAngles[3]);
+    Serial.printf("  Thumb: %d\n", flexAngles[4]);
+    Serial.printf("  Accel X: %.2f\n", accelX);
+    Serial.printf("  Accel Y: %.2f\n", accelY);
+    Serial.printf("  Accel Z: %.2f\n", accelZ);
+    Serial.printf("  Gyro X: %.2f\n", gyroX);
+    Serial.printf("  Gyro Y: %.2f\n", gyroY);
+    Serial.printf("  Gyro Z: %.2f\n", gyroZ);
 
     Serial.printf("Data upload %s\n",Firebase.setJSON(fbdo, path.c_str(), json) ? "success" : fbdo.errorReason().c_str());
   }

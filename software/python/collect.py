@@ -12,7 +12,7 @@ firebase_admin.initialize_app(cred, {
 ref = db.reference("devices/3c6FsvRdvIaObUmMh4byYeBbAIU2/reading")  # Replace with the correct Firebase path
 
 # Define the CSV file name and header row
-csv_file = 'flex_accel_data.csv'
+csv_file = 'new.csv'
 header = ['little', 'ring', 'middle', 'pointer', 'thumb', 'accel_x', 'accel_y', 'accel_z', 'result']
 
 # Initialize CSV file with header if it doesn't exist

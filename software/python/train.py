@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 import pickle
 
 # Load data from the CSV file
-csv_file = 'flex_accel_data.csv'
+csv_file = 'flex_accel_data.csv'  #change the name of csv file
 data = pd.read_csv(csv_file)
 
 # Check for missing values
@@ -38,13 +38,13 @@ print(classification_report(y_test, y_pred, target_names=label_encoder.classes_)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 
 # Save the model to a file
-model_filename = 'sign_recognition_model.pkl'
+model_filename = 'new_model.pkl'
 with open(model_filename, 'wb') as file:
     pickle.dump(model, file)
 print(f"Model saved to {model_filename}")
 
 # Save the label encoder to a file
-encoder_filename = 'label_encoder.pkl'
+encoder_filename = 'label_new_encoder.pkl'
 with open(encoder_filename, 'wb') as file:
     pickle.dump(label_encoder, file)
 print(f"Label encoder saved to {encoder_filename}")

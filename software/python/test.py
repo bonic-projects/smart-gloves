@@ -22,7 +22,7 @@ def mimic_ml_model():
         for char in text_to_send:
             print(f"Sending gesture: {char}")
             output_ref.set({"gesture": char})
-            time.sleep(0.1)  # Wait 3 seconds between each gesture
+            time.sleep(0.2)  # Wait 3 seconds between each gesture
 
 # Start the simulation
 if __name__ == "__main__":
